@@ -7,8 +7,7 @@ const skipPage = Number(process.env.SKIPPAGE) ?? 0;
 
 const main = async (url, min, max, skip) => {
   const browser = await puppeteer.launch({ headless: false });
-  for (let i = min; i < max; i++ + skip) {
-    console.log(i);
+  for (let i = min; i <= max; i = i + 1 + skip) {
     const page = await browser.newPage();
 
     await page.goto(`${url}${i}`);
